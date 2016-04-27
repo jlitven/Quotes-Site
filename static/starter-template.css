@@ -1,0 +1,59 @@
+.container {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.author {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+.quote , .author_name{
+  font-size: 50px;
+  font-family: 'Berkshire Swash'
+}
+
+.nav {
+  margin-bottom: 5%;
+}
+
+.author_name {
+  display: none;
+  text-align: right;
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline;  ie7 fix
+     zoom:1;
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+
+/*
+.vcenter {
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  height: 200px;
+}
+
+*/

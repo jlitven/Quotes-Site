@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quote Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom styles for this template -->
+    <link rel=stylesheet href="{{ url_for('static', filename='single_style.css') }}" />
+  </head>
+
+  <body>
+
+    <div class="container" style="font-family:{{font_family}}">
+        <div class="quote_text">
+        {{ quote }}
+        </div>
+        <br>
+        <div class="author">
+          - {{ author }}
+        </div>
+    </div>
+
+  </body>
+</html>

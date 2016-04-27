@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{ JSGlue.include() }}
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+
+
+    <!-- Custom styles for this template -->
+    <link href="static/starter-template.css" rel="stylesheet">
+    <!-- Custom fonts -->
+    <link rel="stylesheet" href="static/fonts/font-awesome/css/font-awesome.min.css">
+    <!-- Custom javascript -->
+
+    <!--jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="static/bootstrap.min.js"></script>
+    <script src="static/custom.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+
+      <h1>{{ title }}</h1>
+      <br>
+
+      <h2>Font Style: </h2>
+        <ul id="font-menu" class="nav nav-pills">
+          <li class="active"><a href="#">Berkshire Swash</a></li>
+          <li><a href="#">Oleo Script</a></li>
+          <li><a href="#">Dancing Script</a></li>
+          <li><a href="#">Arizonia</a></li>
+          <li><a href="#">Calligraffitti</a></li>
+          <li><a href="#">Great Vibes</a></li>
+          <li><a href="#">Lobster Two</a></li>
+          <li><a href="#">Pacifico</a></li>
+        </ul>
+      <br>
+
+      {% for author in authors%}
+      <div class="row">
+        <div class="col-md-3 vcenter">
+          <figure class="centered">
+            {% if author['image_url'] %}
+              <a target="_blank" href=https://www.goodreads.com{{author['author_url']}}>
+              <img class="author_img" src= {{author['image_url']}}>
+              </a>
+            {% endif %}
+
+            <figcaption class="author">{{author['name']}}</figcaption>
+          </figure>
+        </div>
+        <div class="col-md-2 previous">
+          <button name="submit" type="submit" value="prev" class="btn btn-default" onclick= "previous('{{author['name']}}')">
+              <i class="fa fa-arrow-left fa-5x"></i>
+          </button>
+        </div>
+        <div class="col-md-5 vcenter">
+          {% set id = 0 %}
+          {% for quote in author['quotes'] %}
+            <meta id="{{author['name']}} quote_{{id}}" data="{{quote}}">
+            {% set id = id + 1 %}
+          {% endfor %}
+          <div id="{{author['name']}} quote_area" data_quote_id = "0" class="quote" >{{author['quotes'][0]}}
+          </div>
+          <div class="author_name" id="{{author['name']}} name_area"> - {{author['name']}}</div>
+          <a id="{{author['name']}} pdf_link" onclick= "CreatePDF('{{author['name']}}'); return false;" href="#">Create PDF</a>
+        </div>
+        <div class="col-md-2 next">
+          <button name="submit" type="submit" value="next" class="btn btn-default" onclick= "next('{{author['name']}}')">
+              <i class= "fa fa-arrow-right fa-5x"></i>
+            </button>
+        </div>
+      </div>
+      <br><br><br>
+      {% endfor %}
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+@media all {
+    @page {
+        size: landscape;
+        margin: 1cm 4cm;
+    }
+
+    html, body, .page {
+        height: 100%;
+    }
+    .container {
+        text-align: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+        width: 100%;
+    }
+
+    .author {
+        text-align: right;
+    }
+}
